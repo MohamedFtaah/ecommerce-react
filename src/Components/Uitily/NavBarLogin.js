@@ -52,9 +52,16 @@ const NavBarLogin = () => {
                         {
                             user.name ? (
                                 <NavDropdown title={user.name} id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="/user/profile">صفحة المستخدم</NavDropdown.Item>
+
+                                    {
+                                        user.role === 'admin' ? (<NavDropdown.Item href="/admin/allproducts">صفحة الادمن</NavDropdown.Item>) :
+                                            (<NavDropdown.Item href="/user/profile">صفحة المستخدم</NavDropdown.Item>)
+
+                                    }
+
                                     <NavDropdown.Item onClick={logOut} href="#action/3.2">تسجيل الخروج</NavDropdown.Item>
-                                </NavDropdown>) :
+                                </NavDropdown>
+                            ) :
 
                                 <Nav.Link href='/login'
                                     className="nav-text d-flex mt-3 justify-content-center">

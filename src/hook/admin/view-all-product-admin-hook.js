@@ -43,11 +43,7 @@ export default function ViewAllProductAdminHook() {
     //
 
 
-    const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () =>
-        setShow(true);
 
-    return [item, onDeleteProduct, pageDate, onPress, show, handleShow, handleClose]
+    return [item, onDeleteProduct, pageDate, onPress]
 }

@@ -52,6 +52,7 @@ export const creatProducts = createAsyncThunk('products/postData', async (formDa
 export const deleteProduct = createAsyncThunk('products/deleteData', async (url, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
+        console.log(url);
         const res = await useDeleteData(`/api/v1/products/${url}`)
         return res
     } catch (err) {

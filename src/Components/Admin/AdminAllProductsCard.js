@@ -3,8 +3,18 @@ import { Col, Card, Row, Modal, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import prod1 from '../../images/prod1.png'
 import ViewAllProductAdminHook from '../../hook/admin/view-all-product-admin-hook'
-const AdminAllProductsCard = ({ onDeleteProduct, item, show, handleShow, handleClose }) => {
+const AdminAllProductsCard = ({ onDeleteProduct, item }) => {
+    const [show, setShow] = useState(false);
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const confirmRemoval = () => {
+        onDeleteProduct(item._id)
+        handleClose()
+        window.location.reload()
+
+    }
     return (
         <Col xs="12" sm="6" md="5" lg="4" className="d-flex">
             <Card
@@ -16,7 +26,8 @@ const AdminAllProductsCard = ({ onDeleteProduct, item, show, handleShow, handleC
                     border: "none",
                     backgroundColor: "#FFFFFF",
                 }}>
-                <Row className="d-flex justify-content-center px-2">
+                <Row onClick={() => { console.log(item._id) }} className="d-flex justify-content-center px-2">
+
                     <Col className=" d-flex justify-content-between">
                         <div onClick={handleShow} className="d-inline item-delete-edit">ازاله</div>
                         <Link to={`/admin/editproducts/${item._id}`}>
@@ -54,16 +65,8 @@ const AdminAllProductsCard = ({ onDeleteProduct, item, show, handleShow, handleC
                     <Button variant="secondary" onClick={handleClose}>
                         لا تمسح
                     </Button>
-                    <Button variant="primary" onClick={
-                        () => {
-                            console.log(item._id);
-                            onDeleteProduct(item._id)
-                            handleClose()
-                            // window.location.reload()
-
-                        }
-                    }>
-                        اتمام المسح                    </Button>
+                    <Button variant="primary" onClick={confirmRemoval}>
+                        اتمام المسح </Button>
                 </Modal.Footer>
             </Modal>
         </Col>

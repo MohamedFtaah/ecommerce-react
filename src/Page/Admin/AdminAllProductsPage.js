@@ -5,7 +5,7 @@ import AdminAllProducts from '../../Components/Admin/AdminAllProducts'
 import Pagination from '../../Components/Uitily/Pagination'
 import ViewAllProductAdminHook from '../../hook/admin/view-all-product-admin-hook'
 const AdminAllProductsPage = () => {
-    const [item, onDeleteProduct, pageDate, onPress, show, handleShow, handleClose] = ViewAllProductAdminHook()
+    const [item, onDeleteProduct, pageDate, onPress] = ViewAllProductAdminHook()
 
     return (
         <Container >
@@ -15,7 +15,7 @@ const AdminAllProductsPage = () => {
                 </Col>
 
                 <Col sm="9" xs="10" md="10">
-                    <AdminAllProducts handleShow={handleShow} handleClose={handleClose} show={show} onDeleteProduct={onDeleteProduct} item={item} />
+                    <AdminAllProducts onDeleteProduct={onDeleteProduct} item={item} />
                     {pageDate > 1 ? <Pagination pageDate={pageDate} onPress={onPress} /> : null}
                 </Col>
             </Row>
