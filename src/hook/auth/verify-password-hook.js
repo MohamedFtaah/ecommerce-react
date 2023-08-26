@@ -1,44 +1,44 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { forgetPassword } from "../../redux/reducer.js/authSlice";
+import { verifyCode } from "../../redux/reducer.js/authSlice";
 import notify from "../useNotifaction";
 import { useNavigate } from "react-router-dom";
 
-export default function ForgetPpasswordHook() {
+export default function VerifyPasswordHook() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const [loading, setLoading] = useState(true)
 
-    const [mail, setMail] = useState('')
+    const [code, setCode] = useState('')
 
 
-    const ChangMail = (e) => { setMail(e.target.value) }
+    const ChangCode = (e) => { setCode(e.target.value) }
     const onSupmt = async () => {
         setLoading(true)
-        localStorage.setItem('user-email', mail)
-        await dispatch(forgetPassword(
+
+        await dispatch(verifyCode(
             {
-                email: mail
+                "resetCode": code
             }
         ));
         setLoading(false)
     }
 
-    const res = useSelector(state => state.authData.forgetPassword)
+    const res = useSelector(state => state.authData.verifyCode)
 
     useEffect(() => {
         if (loading === false) {
             if (res) {
                 console.log(res);
                 if (res.data?.status === 'Success') {
-                    notify('تم ارسال الكود بنجاح', 'success')
+                    notify('كود التفعيل صحيح', 'success')
                     setTimeout(() => {
-                        navigate('/user/verify-code')
+                        navigate('/user/reset-password')
                     }, 1000)
                 }
                 if (res.response?.data.status === 'fail') {
-                    notify('اسم الحساب غير صحيح', 'error')
+                    notify('كود النفعيل غير صحيح', 'error')
                 }
 
             }
@@ -47,5 +47,5 @@ export default function ForgetPpasswordHook() {
     }, [loading])
 
 
-    return [mail, ChangMail, onSupmt]
+    return [code, ChangCode, onSupmt]
 }

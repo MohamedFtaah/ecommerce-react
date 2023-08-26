@@ -13,7 +13,15 @@ export const storeCounter = configureStore({
         supCategorysDate: supCategorySlice,
         ProductsDate: ProductsSlice,
         authData: authSlice
-    }
+    }, middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                // Ignore these action types
+                ignoredActions: ['auth/creatUser/rejected', 'auth/loginUser/rejected', 'auth/forgetPassword/rejected', 'auth/creatUser/fulfilled', 'auth/loginUser/fulfilled', 'auth/forgetPassword/fulfilled'],
+                // Ignore these field paths in all actions
+                ignoredPaths: ['authData.creatUser', 'authData.loginUser', 'authData.forgetPassword', 'authData.verifyCode'],
+            },
+        }),
 
 }
 )

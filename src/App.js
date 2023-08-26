@@ -25,7 +25,9 @@ import UserEditAddressPage from './Page/User/UserEditAddressPage';
 import UserProfilePage from "./Page/User/UserProfilePage";
 import AdminEditProductsPage from "./Page/Admin/AdminEditProductsPage";
 import ForgetPasswordPage from "./Page/Auth/ForgetPasswordPage";
+import UserVerifyCode from "./Page/Auth/UserVerifyCodePage";
 import Test from "./Page/test/Test";
+import ResetPassword from "./Page/Auth/ResetPasswordPage";
 function App() {
   return (
     <div className="font" >
@@ -56,6 +58,8 @@ function App() {
           <Route path="/user/edit-address" element={<UserEditAddressPage />} />
           <Route path="/user/profile" element={<UserProfilePage />} />
           <Route path="/user/forget-password" element={<ForgetPasswordPage />} />
+          <Route path="/user/verify-code" element={<UserVerifyCode />} />
+          <Route path="/user/reset-password" element={<ResetPassword />} />
           <Route path="/test" element={<Test />} />
 
         </Routes>
