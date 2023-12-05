@@ -20,7 +20,6 @@ export default function RegisterHook() {
     const ChangPass = (e) => { setPass(e.target.value) }
     const ChangConfirmPass = (e) => { setConfirmPass(e.target.value) }
     const ChangPhone = (e) => { setPhone(e.target.value) }
-    const ChangLoading = () => { }
 
 
     function validateEmail(email) {

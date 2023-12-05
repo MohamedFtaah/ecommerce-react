@@ -1,11 +1,10 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import ResetPasswordHook from '../../hook/auth/reset-password-hook'
 
 export default function ResetPassword() {
-    const [confirmPass, newPass, loading, ChangConfirmPass, ChangNewPass, onSupmt] = ResetPasswordHook()
+    const [confirmPass, newPass, , ChangConfirmPass, ChangNewPass, onSupmt] = ResetPasswordHook()
 
     return (
         <div>

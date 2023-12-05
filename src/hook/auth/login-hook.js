@@ -2,10 +2,8 @@ import { useState } from "react";
 import notify from "../useNotifaction";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../redux/reducer.js/authSlice";
 export default function LoginHook() {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const [mail, setMail] = useState('')

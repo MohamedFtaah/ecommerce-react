@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct, getAllProducts } from '../../redux/reducer.js/productSlice';
 

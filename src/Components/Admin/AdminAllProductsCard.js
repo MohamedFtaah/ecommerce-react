@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { Col, Card, Row, Modal, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import prod1 from '../../images/prod1.png'
-import ViewAllProductAdminHook from '../../hook/admin/view-all-product-admin-hook'
 const AdminAllProductsCard = ({ onDeleteProduct, item }) => {
     const [show, setShow] = useState(false);
 
