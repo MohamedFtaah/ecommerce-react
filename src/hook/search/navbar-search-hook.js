@@ -11,17 +11,17 @@ export default function NavBarSeearchHook() {
     const onChangeSearch = (e) => {
         localStorage.setItem('searchWord', e.target.value)
         setSearchWord(e.target.value)
+    }
+    const startSearch = () => {
         if (window.location.pathname != '/products') {
             window.location.pathname = '/products'
         }
-    }
-
-    useEffect(() => {
         setTimeout(() => {
 
             getProducts()
         }, 1000)
-    }, [searchWord])
+    }
 
-    return [onChangeSearch, searchWord]
+
+    return [onChangeSearch, searchWord, startSearch]
 }

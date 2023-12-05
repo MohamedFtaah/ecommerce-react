@@ -5,6 +5,7 @@ import brandSlice from "../reducer.js/brandSlice"
 import supCategorySlice from "../reducer.js/supCategorySlice"
 import ProductsSlice from '../reducer.js/productSlice';
 import authSlice from "../reducer.js/authSlice";
+import rateSlice from "../reducer.js/rateSlice";
 
 export const storeCounter = configureStore({
     reducer: {
@@ -12,7 +13,8 @@ export const storeCounter = configureStore({
         brandDate: brandSlice,
         supCategorysDate: supCategorySlice,
         ProductsDate: ProductsSlice,
-        authData: authSlice
+        authData: authSlice,
+        rateData: rateSlice
     }, middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {

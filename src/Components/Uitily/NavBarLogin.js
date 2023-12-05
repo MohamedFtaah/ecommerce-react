@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Container, FormControl, Nav, NavDropdown } from 'react-bootstrap'
+import { Navbar, Container, FormControl, Nav, NavDropdown, Button } from 'react-bootstrap'
 import logo from '../../images/logo.png'
 import login from '../../images/login.png'
 import cart from '../../images/cart.png'
@@ -7,10 +7,13 @@ import NavBarSearchHook from './../../hook/search/navbar-search-hook';
 import { useEffect } from 'react'
 import { useState } from 'react'
 const NavBarLogin = () => {
-    const [onChangeSearch, searchWord] = NavBarSearchHook()
+    const [onChangeSearch, searchWord, startSearch] = NavBarSearchHook()
+
     let word = ""
     if (localStorage.getItem('searchWord') != null) {
+
         word = localStorage.getItem('searchWord')
+        console.log(word);
     }
 
     const [user, setUser] = useState('')
@@ -38,14 +41,16 @@ const NavBarLogin = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
+                    <Button onClick={startSearch} variant="outline-success" className='me-2'>Search</Button>
                     <FormControl
                         value={word}
-                        onClick={onChangeSearch}
+                        onChange={onChangeSearch}
                         type="search"
                         placeholder="ابحث..."
                         className="me-2 w-100 text-center"
                         aria-label="Search"
                     />
+
                     <Nav className="me-auto">
 
 

@@ -3,8 +3,9 @@ import baseUrl from "../Components/Api/baseUrl"
 const useInsertDataWithImage = async (url, parmas) => {
     const config = {
         headers: {
+
             'Content-Type': 'multipart/from-data',
-            Authorization: `Bearer${localStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
 
         }
     }
@@ -14,9 +15,10 @@ const useInsertDataWithImage = async (url, parmas) => {
 }
 
 const useInsertData = async (url, parmas) => {
+    console.log(localStorage.getItem('token'));
     const config = {
         headers: {
-            Authorization: `Bearer${localStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
 
         }
     }

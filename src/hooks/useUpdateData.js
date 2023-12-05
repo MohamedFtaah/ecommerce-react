@@ -3,7 +3,7 @@ import baseUrl from "../Components/Api/baseUrl"
 const useUpdateDataWithImage = async (url, parmas) => {
     const config = {
         headers: { 'Content-Type': 'multipart/from-data' },
-        Authorization: `Bearer${localStorage.getItem('token')}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
     }
     const res = await baseUrl.put(url, parmas, config)
     console.log(res)

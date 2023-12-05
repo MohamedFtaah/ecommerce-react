@@ -9,7 +9,13 @@ import { useParams } from 'react-router-dom'
 const ProductDetalisPage = () => {
     const { id } = useParams()
 
-    const [, , , , ProductOfCategorydata, randomK] = ViewDetalisProductHook(id)
+    const [detalisProductData, , , , ProductOfCategorydata, randomK] = ViewDetalisProductHook(id)
+
+    if (detalisProductData) {
+        var rateAvg = detalisProductData.ratingsAverage
+        var rateQtr = detalisProductData.ratingsQuantity
+    }
+
 
     return (
 
@@ -20,7 +26,7 @@ const ProductDetalisPage = () => {
             <CategoryHeader />
             <Container>
                 <ProductDetalis />
-                <RateContainer />
+                <RateContainer id={id} rateAvg={rateAvg} rateQtr={rateQtr} />
                 <CardProductsContainer item={ProductOfCategorydata.slice(randomK, randomK + 4)} title="منتجات قد تعجبك" />
             </Container>
         </div>

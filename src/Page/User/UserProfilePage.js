@@ -4,7 +4,10 @@ import Pagination from '../../Components/Uitily/Pagination'
 import UserSideBar from '../../Components/User/UserSideBar'
 import UserAddAddress from '../../Components/User/UserAddAddress';
 import UserProfile from '../../Components/User/UserProfile';
+import UserProfilePageHook from '../../hook/user/user-profile-page-hook';
 const UserProfilePage = () => {
+
+
     return (
         <Container >
             <Row className='py-3'>
@@ -13,7 +16,7 @@ const UserProfilePage = () => {
                 </Col>
 
                 <Col sm="9" xs="10" md="10">
-                  <UserProfile />
+                    <UserProfile />
                 </Col>
             </Row>
         </Container>

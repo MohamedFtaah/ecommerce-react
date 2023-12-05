@@ -11,24 +11,17 @@ export default function EnvelopeInput({ children }) {
         }
 
     )
+    setTimeout(() => {
+        setStyle({
+            logInCard: { bottom: '50%' },
+            envelope: { top: '60%' }
+        })
+        console.log('k');
+    }, 1000)
     return (
         <div style={{ minHeight: "800px", position: "relative" }}>
             <div style={style.envelope} className='envelope'>
-                <div onClick={() => {
-                    if (style.logInCard.bottom === '') {
-                        setStyle({
-                            logInCard: { bottom: '50%' },
-                            envelope: { top: '60%' }
-                        })
-
-                    }
-                    else {
-                        setStyle({
-                            logInCard: { bottom: '' },
-                            envelope: { top: '' }
-                        })
-                    }
-                }} style={style.logInCard} className='log-in-card'>
+                <div style={style.logInCard} className='log-in-card'>
 
                     {children}
                 </div>
